@@ -1,0 +1,168 @@
+      514	INFO      	Log	XnLog.cpp	346	New log started on 2014-01-22 17:00:23
+      547	INFO      	Log	XnLog.cpp	350	OpenNI version is 1.5.4 (Build 0)-Linux-x86 (May 16 2012 10:24:55)
+      550	INFO      	Log	XnLog.cpp	319	--- Filter Info --- Minimum Severity: VERBOSE
+      590	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Script: OpenNI/OpenNI/1.5.4.0
+      716	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libnimMockNodes.so...
+      943	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. ProductionNode: OpenNI/Mock/1.5.4.0
+      962	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Generator: OpenNI/Mock/1.5.4.0
+      977	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. MapGenerator: OpenNI/Mock/1.5.4.0
+      993	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Device: OpenNI/Mock/1.5.4.0
+     1005	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Depth: OpenNI/Mock/1.5.4.0
+     1035	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. IR: OpenNI/Mock/1.5.4.0
+     1052	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Image: OpenNI/Mock/1.5.4.0
+     1067	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Audio: OpenNI/Mock/1.5.4.0
+     1080	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libnimCodecs.so...
+     1198	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Codec: OpenNI/16zP/1.5.4.0
+     1217	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Codec: OpenNI/16zT/1.5.4.0
+     1228	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Codec: OpenNI/Im8z/1.5.4.0
+     1239	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Codec: OpenNI/JPEG/1.5.4.0
+     1253	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Codec: OpenNI/NONE/1.5.4.0
+     1263	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libnimRecorder.so...
+     1361	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Recorder: OpenNI/Recorder/1.5.4.0
+     1380	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Player: OpenNI/Player/1.5.4.0
+     1392	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVFeatures_1_3_0.so...
+     2281	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Scene: PrimeSense/XnVSceneAnalyzer/1.3.0.17
+     2316	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. User: PrimeSense/XnVSkeletonGenerator/1.3.0.17
+     2331	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVFeatures_1_3_1.so...
+     3055	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Scene: PrimeSense/XnVSceneAnalyzer/1.3.1.8
+     3078	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. User: PrimeSense/XnVSkeletonGenerator/1.3.1.8
+     3092	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVFeatures_1_4_1.so...
+     3551	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Scene: PrimeSense/XnVSceneAnalyzer/1.4.1.2
+     3571	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. User: PrimeSense/XnVSkeletonGenerator/1.4.1.2
+     3583	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVFeatures_1_4_2.so...
+     4035	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Scene: PrimeSense/XnVSceneAnalyzer/1.4.2.5
+     4054	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. User: PrimeSense/XnVSkeletonGenerator/1.4.2.5
+     4066	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVFeatures_1_5_2.so...
+     4753	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Scene: PrimeSense/XnVSceneAnalyzer/1.5.2.21
+     4788	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. User: PrimeSense/XnVSkeletonGenerator/1.5.2.21
+     4802	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVHandGenerator_1_3_0.so...
+     5291	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Gesture: PrimeSense/XnVGestureGenrator/1.3.0.17
+     5312	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Hands: PrimeSense/XnVHandTracker/1.3.0.17
+     5325	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVHandGenerator_1_3_1.so...
+     5856	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Gesture: PrimeSense/XnVGestureGenrator/1.3.1.8
+     5875	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Hands: PrimeSense/XnVHandTracker/1.3.1.8
+     5889	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVHandGenerator_1_4_1.so...
+     6225	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Gesture: PrimeSense/XnVGestureGenrator/1.4.1.2
+     6244	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Hands: PrimeSense/XnVHandTracker/1.4.1.2
+     6258	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVHandGenerator_1_4_2.so...
+     6595	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Gesture: PrimeSense/XnVGestureGenrator/1.4.2.5
+     6614	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Hands: PrimeSense/XnVHandTracker/1.4.2.5
+     6626	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnVHandGenerator_1_5_2.so...
+     6933	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Gesture: PrimeSense/XnVGestureGenerator/1.5.2.21
+     6951	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Hands: PrimeSense/XnVHandTracker/1.5.2.21
+     6964	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnDeviceSensorV2KM.so...
+     8372	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Device: PrimeSense/SensorKinect/5.1.2.1
+     8394	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Depth: PrimeSense/SensorKinect/5.1.2.1
+     8407	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Image: PrimeSense/SensorKinect/5.1.2.1
+     8418	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. IR: PrimeSense/SensorKinect/5.1.2.1
+     8431	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Audio: PrimeSense/SensorKinect/5.1.2.1
+     8442	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	280	Checking /usr/lib/libXnDeviceFile.so...
+     8759	VERBOSE   	ModuleLoader	XnModuleLoader.cpp	451	Found exported production node. Player: PrimeSense/File/5.1.2.1
+     8825	INFO      	OpenNI	XnOpenNI.cpp	1608	Creating node 'Script1' of type Script: OpenNI/OpenNI/1.5.4.0...
+     8904	VERBOSE   	OpenNI	XnXmlScriptNode.cpp	762	Requested to create a node of type Image...
+     8934	VERBOSE   	xnUSB	XnUSBLinux.cpp	107	Initializing USB...
+    10325	INFO      	xnUSB	XnUSBLinux.cpp	121	USB is initialized.
+    10411	VERBOSE   	DeviceSensor	XnSensor.cpp	174	Initializing device sensor...
+    10445	VERBOSE   	DeviceIO	XnDeviceSensorIO.cpp	82	Connecting to USB device...
+    10456	VERBOSE   	DeviceIO	XnDeviceSensorIO.cpp	99	Trying to open sensor '045e/02ae@1/9'...
+    10498	VERBOSE   	xnUSB	XnUSBLinux.cpp	135	Starting libusb asynch thread...
+    10546	WARNING   	xnOS	LinuxThreads.cpp	172	Failed to set thread priority (1)
+    10558	WARNING   	xnUSB	XnUSBLinux.cpp	153	USB events thread: Failed to set thread priority to critical. This might cause loss of data...
+    10583	VERBOSE   	DeviceIO	XnDeviceSensorIO.cpp	112	Trying to open endpoint 0x4 for control out (for old firmwares)...
+    10621	INFO      	DeviceIO	XnDeviceSensorIO.cpp	133	Connected to USB device
+    10637	INFO      	DDK	XnProperty.cpp	144	Property Device.USBPath was changed to 045e/02ae@1/9.
+    13470	VERBOSE   	DeviceSensorProtocol	XnHostProtocol.cpp	940	Getting hardware versions...
+    25578	INFO      	DeviceSensorProtocol	XnHostProtocol.cpp	1082	Hardware versions: FW=5.1.4 (7) HW=4 Chip=2 Sensor=0 SYS=7
+    37942	WARNING   	DeviceSensorProtocol	XnHostProtocol.cpp	635	Received NACK: 2
+    50326	VERBOSE   	DeviceSensorProtocol	XnHostProtocol.cpp	1257	Getting the fixed params...
+    63453	VERBOSE   	DeviceSensor	XnSensorFixedParams.cpp	74	Sensor serial number: 0
+    63543	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.ReferenceResolution was changed to 2.
+    63566	VERBOSE   	DeviceSensor	XnSensorFirmwareParams.cpp	278	Reading all params from firmware...
+   112450	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.ImageFlicker (17) was changed to 1.
+   137201	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.DepthFPS (20) was changed to 30.
+   223075	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.ImageResolution (13) was changed to 1.
+   259826	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.DepthGain (21) was changed to 30.
+   321197	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.DepthWhiteBalance (45) was changed to 1.
+   358076	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.ImageFPS (14) was changed to 30.
+   382697	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.DepthFormat (18) was changed to 3.
+   395074	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.DepthHoleFilter (22) was changed to 1.
+   456448	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.GMCMode (36) was changed to 1.
+   530071	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.DepthResolution (19) was changed to 1.
+   591448	VERBOSE   	DDK	XnProperty.cpp	144	Property Firmware.ImageSharpness (76) was changed to 50.
+   591499	VERBOSE   	DeviceSensor	XnSensorFirmwareParams.cpp	287	Firmware params were updated.
+   591522	VERBOSE   	DeviceSensorProtocol	XnHostProtocol.cpp	1998	Getting Cmos 0 VBlanking...
+   603822	INFO      	DeviceSensorProtocol	XnHostProtocol.cpp	2013	Cmos 0 VBlanking: 95
+   603881	INFO      	DDK	XnProperty.cpp	144	Property Device.PhysicalDeviceName was changed to PrimeSense Sensor.
+   603923	INFO      	DDK	XnProperty.cpp	144	Property Device.ID was changed to 0.
+   603949	INFO      	DeviceSensor	XnSensor.cpp	203	Device sensor initialized
+   603974	VERBOSE   	DeviceSensor	XnDeviceSensorIO.cpp	310	Shutting down USB depth read thread...
+   603995	VERBOSE   	DeviceSensor	XnDeviceSensorIO.cpp	320	Shutting down USB image read thread...
+   604132	WARNING   	xnUSB	XnUSBLinux.cpp	169	Shutting down USB events thread...
+   604185	VERBOSE   	DeviceSensor	XnDeviceSensorIO.cpp	367	Device closed successfully
+   605240	INFO      	OpenNI	XnOpenNI.cpp	1608	Creating node 'Device1' of type Device: PrimeSense/SensorKinect/5.1.2.1...
+   605380	WARNING   	xnOS	LinuxSysVNamedEvents.cpp	130	Open named event: failed to open key file (2) - event might not exist...
+  2064918	INFO      	DDK	XnProperty.cpp	144	Property Device.ShareMode was changed to 1.
+  2065008	INFO      	DDK	XnProperty.cpp	144	Property Device.ShareMode was changed to 0.
+  2065139	INFO      	OpenNI	XnOpenNI.cpp	1608	Creating node 'Image1' of type Image: PrimeSense/SensorKinect/5.1.2.1...
+  2065179	VERBOSE   	SensorClient	XnSensorClient.cpp	268	Creating stream Image1 (of type Image)
+  2077903	INFO      	DDK	XnProperty.cpp	144	Property Device.ReadData was changed to 1.
+  2078975	INFO      	DDK	XnDeviceBase.cpp	1342	Creating stream 'Image1' of type 'Image'...
+  2079036	VERBOSE   	DDK	XnDeviceBase.cpp	1378	Initializing stream 'Image1'...
+  2079118	INFO      	DDK	XnProperty.cpp	144	Property Image1.RequiredDataSize was changed to 921600.
+  2079611	INFO      	DDK	XnProperty.cpp	144	Property Image1.OutputFormat was changed to 5.
+  2079640	INFO      	DDK	XnDeviceBase.cpp	1417	Stream 'Image1' was initialized.
+  2079659	INFO      	DDK	XnDeviceBase.cpp	1422	'Image1' stream was created.
+  2079829	VERBOSE   	SensorClient	XnSensorClient.cpp	391	Getting property Image1.SupportedModes from server...
+  2080165	VERBOSE   	OpenNI	XnXmlScriptNode.cpp	762	Requested to create a node of type Depth...
+  2080277	INFO      	OpenNI	XnOpenNI.cpp	1608	Creating node 'Depth1' of type Depth: PrimeSense/SensorKinect/5.1.2.1...
+  2080311	VERBOSE   	SensorClient	XnSensorClient.cpp	268	Creating stream Depth1 (of type Depth)
+  2094660	INFO      	DDK	XnDeviceBase.cpp	1342	Creating stream 'Depth1' of type 'Depth'...
+  2094725	VERBOSE   	DDK	XnDeviceBase.cpp	1378	Initializing stream 'Depth1'...
+  2094812	INFO      	DDK	XnProperty.cpp	144	Property Depth1.RequiredDataSize was changed to 1228800.
+  2095420	INFO      	DDK	XnProperty.cpp	144	Property Depth1.OutputFormat was changed to 1.
+  2095458	INFO      	DDK	XnDeviceBase.cpp	1417	Stream 'Depth1' was initialized.
+  2095498	INFO      	DDK	XnDeviceBase.cpp	1422	'Depth1' stream was created.
+  2095635	VERBOSE   	SensorClient	XnSensorClient.cpp	391	Getting property Depth1.SupportedModes from server...
+  2095979	VERBOSE   	DDK	XnDeviceBase.cpp	330	Opening stream Image1...
+  2096724	INFO      	DDK	XnProperty.cpp	144	Property Image1.ActualReadData was changed to 1.
+  5221398	INFO      	DDK	XnProperty.cpp	144	Property Image1.State was changed to 1.
+  5221448	INFO      	DDK	XnDeviceBase.cpp	341	Stream Image1 is open.
+  5221476	VERBOSE   	DDK	XnDeviceBase.cpp	330	Opening stream Depth1...
+  5221516	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I:  0.00, O:  0.00) Image1 (I:  0.00, O:  0.00) ReadCalls:  0.00
+  5222180	INFO      	DDK	XnProperty.cpp	144	Property Depth1.ActualReadData was changed to 1.
+  5805574	INFO      	DDK	XnProperty.cpp	144	Property Depth1.State was changed to 1.
+  5805628	INFO      	DDK	XnDeviceBase.cpp	341	Stream Depth1 is open.
+  5815445	VERBOSE   	SensorServer	XnSensorClient.cpp	433	Setting Depth1.Registration to 1...
+  5951602	INFO      	DDK	XnProperty.cpp	144	Property Depth1.Registration was changed to 1.
+  6016408	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 29.71, O:  0.00) Image1 (I: 30.19, O:  0.00) ReadCalls:  0.00
+  7016432	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 29.91, O: 10.78) Image1 (I: 30.08, O: 10.78) ReadCalls: 10.78
+  8016523	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 29.95, O: 14.05) Image1 (I: 30.05, O: 14.05) ReadCalls: 14.05
+  9012652	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.04, O: 15.17) Image1 (I: 30.07, O: 15.17) ReadCalls: 15.53
+ 10020527	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.29, O: 14.41) Image1 (I: 29.99, O: 14.41) ReadCalls: 14.41
+ 11020457	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.29, O: 13.09) Image1 (I: 29.98, O: 13.09) ReadCalls: 13.08
+ 12020573	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.32, O: 13.67) Image1 (I: 29.99, O: 13.67) ReadCalls: 13.67
+ 13020538	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.32, O: 13.90) Image1 (I: 30.00, O: 13.90) ReadCalls: 13.90
+ 14021036	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 29.99, O: 13.82) Image1 (I: 30.33, O: 13.82) ReadCalls: 13.82
+ 15019401	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.01, O: 13.55) Image1 (I: 30.32, O: 13.54) ReadCalls: 13.54
+ 16019470	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.01, O: 13.71) Image1 (I: 30.32, O: 13.71) ReadCalls: 13.71
+ 17019390	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.06, O: 13.95) Image1 (I: 30.32, O: 13.95) ReadCalls: 13.95
+ 18019417	VERBOSE   	FPS	XnOpenNI.cpp	877	[FPS] Depth1 (I: 30.05, O: 14.16) Image1 (I: 30.33, O: 14.16) ReadCalls: 14.16
+ 18116904	VERBOSE   	SensorServer	XnSensorClient.cpp	433	Setting Depth1.Registration to 0...
+ 18129217	INFO      	DDK	XnProperty.cpp	144	Property Depth1.Registration was changed to 0.
+ 18129366	INFO      	OpenNI	XnOpenNI.cpp	1905	Destroying node 'Script1'
+ 18129402	INFO      	OpenNI	XnOpenNI.cpp	1905	Destroying node 'Image1'
+ 18129433	VERBOSE   	SensorClient	XnSensorClient.cpp	283	Destroying stream Image1
+ 18317919	INFO      	DDK	XnProperty.cpp	144	Property Image1.ActualReadData was changed to 0.
+ 18318426	INFO      	DDK	XnDeviceBase.cpp	1468	Destroying stream 'Image1'...
+ 18319624	VERBOSE   	DDK	XnDeviceBase.cpp	1497	'Image1' stream destroyed.
+ 18319694	INFO      	OpenNI	XnOpenNI.cpp	1905	Destroying node 'Depth1'
+ 18319738	VERBOSE   	SensorClient	XnSensorClient.cpp	283	Destroying stream Depth1
+ 18707008	INFO      	DDK	XnProperty.cpp	144	Property Depth1.ActualReadData was changed to 0.
+ 18707744	INFO      	DDK	XnDeviceBase.cpp	1468	Destroying stream 'Depth1'...
+ 18709060	VERBOSE   	DDK	XnDeviceBase.cpp	1497	'Depth1' stream destroyed.
+ 18709107	INFO      	OpenNI	XnOpenNI.cpp	1905	Destroying node 'Device1'
+ 18709145	VERBOSE   	SensorClient	XnSensorClient.cpp	537	Sending Bye
+ 18785500	VERBOSE   	xnOS	LinuxNetwork.cpp	484	Socket has been gracefully closed
+ 18785565	VERBOSE   	IoNetStream	XnIONetworkStream.cpp	81	Network connection was closed gracefully
+ 18785588	INFO      	SensorClient	XnSensorClient.cpp	826	Client connection was closed gracefully
+ 18785809	INFO      	OpenNI	XnOpenNI.cpp	474	Destroying context

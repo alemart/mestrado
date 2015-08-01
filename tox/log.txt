@@ -1,0 +1,17 @@
+ColorClassifier::ColorModel::load() error - can't load model "marker_blue_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "projetor_marker_green_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "projetor_marker_magenta_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "marker_yellow_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "projetor_marker_yellow_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "marker_magenta_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "projetor_finger_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "marker_green_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "projetor_marker_blue_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "eraser_green_lambdaInv.yaml"
+ColorClassifier::ColorModel::load() error - can't load model "finger_lambdaInv.yaml"
+EraserDetector: can't load calib file.
+OpenCV Error: Bad argument (Unknown object) in cvWrite, file /home/arturo/Downloads/OpenCV-2.3.1/modules/core/src/persistence.cpp, line 4881
+terminate called after throwing an instance of 'cv::Exception'
+  what():  /home/arturo/Downloads/OpenCV-2.3.1/modules/core/src/persistence.cpp:4881: error: (-5) Unknown object in function cvWrite
+
+./tox: line 8: 12669 Aborted                 (core dumped) ./tox $@

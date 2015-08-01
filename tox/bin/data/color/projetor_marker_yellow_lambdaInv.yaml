@@ -1,0 +1,7 @@
+%YAML:1.0
+projetor_marker_yellow_lambdaInv: !!opencv-matrix
+   rows: 2
+   cols: 2
+   dt: f
+   data: [ 6.35613874e-02, 1.01731271e-02, 1.01731280e-02,
+       2.20802445e-02 ]

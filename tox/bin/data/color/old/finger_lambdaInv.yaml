@@ -1,0 +1,7 @@
+%YAML:1.0
+finger_lambdaInv: !!opencv-matrix
+   rows: 2
+   cols: 2
+   dt: f
+   data: [ 1.74485818e-01, 4.72431295e-02, 4.72431220e-02,
+       5.08580618e-02 ]

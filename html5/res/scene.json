@@ -1,0 +1,56 @@
+{
+	"metadata": {
+		"version": 4.3,
+		"type": "Object",
+		"generator": "ObjectExporter"
+	},
+	"geometries": [
+		{
+			"uuid": "4ABF417C-3F0D-4095-9608-8F1AC416E1FE",
+			"type": "BoxGeometry",
+			"width": 300,
+			"height": 300,
+			"depth": 300,
+			"widthSegments": 1,
+			"heightSegments": 1,
+			"depthSegments": 1
+		}],
+	"materials": [
+		{
+			"uuid": "178DBB4E-FF54-4661-A0AF-A138D6C84E84",
+			"name": "SkyboxMaterial",
+			"type": "MeshPhongMaterial",
+			"color": 2445206,
+			"ambient": 16777215,
+			"emissive": 0,
+			"specular": 1118481,
+			"shininess": 30,
+			"side": 1,
+			"opacity": 1,
+			"transparent": false,
+			"wireframe": false
+		}],
+	"object": {
+		"uuid": "3DA1C754-A6A5-4044-8ACA-597941926E9B",
+		"type": "Object",
+		"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+		"children": [
+			{
+				"uuid": "B80C66C8-2959-4F74-AF72-2C221E86048C",
+				"name": "Skybox",
+				"type": "Mesh",
+				"geometry": "4ABF417C-3F0D-4095-9608-8F1AC416E1FE",
+				"material": "178DBB4E-FF54-4661-A0AF-A138D6C84E84",
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,150,0,1]
+			},
+			{
+				"uuid": "99191B2B-9D08-4A03-8ACD-792B86346287",
+				"name": "PointLight",
+				"type": "PointLight",
+				"color": 16777215,
+				"intensity": 1,
+				"distance": 0,
+				"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,150,0,1]
+			}]
+	}
+}

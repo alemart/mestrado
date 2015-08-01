@@ -1,0 +1,7 @@
+%YAML:1.0
+eraser_green_lambdaInv: !!opencv-matrix
+   rows: 2
+   cols: 2
+   dt: f
+   data: [ 2.35265732e-01, 1.18272863e-01, 1.18272863e-01,
+       1.19620115e-01 ]

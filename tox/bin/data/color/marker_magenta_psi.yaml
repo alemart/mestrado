@@ -1,0 +1,6 @@
+%YAML:1.0
+marker_magenta_psi: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: f
+   data: [ 1.86292404e+02, 1.07883041e+02 ]

@@ -1,0 +1,76 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', 'tuiojs' ]
+2 info using npm@1.2.18
+3 info using node@v0.10.15
+4 verbose read json /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/package.json
+5 verbose read json /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/node_modules/express/package.json
+6 verbose read json /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/node_modules/jspack/package.json
+7 verbose read json /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/node_modules/socket.io/package.json
+8 verbose read json /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/node_modules/tuio/package.json
+9 verbose read json /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/node_modules/tuiohost/package.json
+10 warn package.json tuio@1.0.0 No README.md file found!
+11 verbose from cache /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/package.json
+12 info shrinkwrap file "/home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1/npm-shrinkwrap.json"
+13 verbose readDependencies returned deps { express: '2.5.9',
+13 verbose readDependencies returned deps   grunt: '0.3.9',
+13 verbose readDependencies returned deps   jspack: '0.0.1',
+13 verbose readDependencies returned deps   'socket.io': '0.9.6',
+13 verbose readDependencies returned deps   tuio: '1.0.0' }
+14 verbose cache add [ 'tuiojs', null ]
+15 verbose cache add name=undefined spec="tuiojs" args=["tuiojs",null]
+16 verbose parsed url { protocol: null,
+16 verbose parsed url   slashes: null,
+16 verbose parsed url   auth: null,
+16 verbose parsed url   host: null,
+16 verbose parsed url   port: null,
+16 verbose parsed url   hostname: null,
+16 verbose parsed url   hash: null,
+16 verbose parsed url   search: null,
+16 verbose parsed url   query: null,
+16 verbose parsed url   pathname: 'tuiojs',
+16 verbose parsed url   path: 'tuiojs',
+16 verbose parsed url   href: 'tuiojs' }
+17 silly lockFile 781589d7-tuiojs tuiojs
+18 verbose lock tuiojs /home/alemart/.npm/781589d7-tuiojs.lock
+19 silly lockFile 781589d7-tuiojs tuiojs
+20 silly lockFile 781589d7-tuiojs tuiojs
+21 verbose addNamed [ 'tuiojs', '' ]
+22 verbose addNamed [ null, '*' ]
+23 silly lockFile d027b7e0-tuiojs tuiojs@
+24 verbose lock tuiojs@ /home/alemart/.npm/d027b7e0-tuiojs.lock
+25 silly addNameRange { name: 'tuiojs', range: '*', hasData: false }
+26 verbose url raw tuiojs
+27 verbose url resolving [ 'https://registry.npmjs.org/', './tuiojs' ]
+28 verbose url resolved https://registry.npmjs.org/tuiojs
+29 info trying registry request attempt 1 at 18:54:48
+30 http GET https://registry.npmjs.org/tuiojs
+31 http 404 https://registry.npmjs.org/tuiojs
+32 silly registry.get cb [ 404,
+32 silly registry.get   { date: 'Wed, 02 Jul 2014 21:50:16 GMT',
+32 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R14B04)',
+32 silly registry.get     'content-type': 'application/json',
+32 silly registry.get     'cache-control': 'max-age=0',
+32 silly registry.get     'content-length': '52',
+32 silly registry.get     'accept-ranges': 'bytes',
+32 silly registry.get     via: '1.1 varnish',
+32 silly registry.get     age: '0',
+32 silly registry.get     'x-served-by': 'cache-at51-ATL',
+32 silly registry.get     'x-cache': 'MISS',
+32 silly registry.get     'x-cache-hits': '0',
+32 silly registry.get     'x-timer': 'S1404337816.477229,VS0,VE36',
+32 silly registry.get     'keep-alive': 'timeout=10, max=50',
+32 silly registry.get     connection: 'Keep-Alive' } ]
+33 silly lockFile d027b7e0-tuiojs tuiojs@
+34 silly lockFile d027b7e0-tuiojs tuiojs@
+35 error 404 'tuiojs' is not in the npm registry.
+35 error 404 You should bug the author to publish it
+35 error 404
+35 error 404 Note that you can also install from a
+35 error 404 tarball, folder, or http url, or git url.
+36 error System Linux 3.11.0-15-generic
+37 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "tuiojs"
+38 error cwd /home/alemart/Downloads/fe9lix-Tuio.js-d0c80a1
+39 error node -v v0.10.15
+40 error npm -v 1.2.18
+41 error code E404
+42 verbose exit [ 1, true ]

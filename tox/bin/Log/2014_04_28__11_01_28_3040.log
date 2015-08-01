@@ -1,0 +1,4 @@
+    22923	INFO      	Log	XnLog.cpp	346	New log started on 2014-04-28 11:01:28
+    22959	INFO      	Log	XnLog.cpp	350	OpenNI version is 1.5.4 (Build 0)-Linux-x86 (May 16 2012 10:24:55)
+    22963	INFO      	Log	XnLog.cpp	319	--- Filter Info --- Minimum Severity: ERROR
+   428864	ERROR     	DeviceSensorProtocol	XnHostProtocol.cpp	948	Get version failed: Device Protocol: Unexpected opcode!

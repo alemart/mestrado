@@ -1,0 +1,7 @@
+%YAML:1.0
+blue_lambdaInv: !!opencv-matrix
+   rows: 2
+   cols: 2
+   dt: f
+   data: [ 2.83207268e-01, 1.82577670e-01, 1.82577670e-01,
+       1.39116898e-01 ]

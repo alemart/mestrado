@@ -1,0 +1,287 @@
+window.sweetSpotEditor = (function(sweetSpot) {
+    // -----------------------
+    // graphics
+    // -----------------------
+    var rectColor = '#fff';
+    var cursorColor = '#0f0';
+
+    // utils
+    var makeSceneNode = function(rect) {
+        var node = new Group();
+
+        node.addChild((function() {
+            var path = new Path.Rectangle(rect);
+            path.strokeColor = rectColor;
+            path.strokeCap = 'round';
+            path.strokeWidth = 20;
+            path.onFrame = function(event) {
+                //this.rotate(3);
+            };
+            return path;
+        })());
+
+        var iw = $(window).innerWidth();
+        var ih = $(window).innerHeight();
+        var x1 = (rect.x / iw).toFixed(2);
+        var y1 = (rect.y / ih).toFixed(2);
+        var x2 = ((rect.x + rect.width) / iw).toFixed(2);
+        var y2 = ((rect.y + rect.height) / ih).toFixed(2);
+
+        node.addChild((function() {
+            var text = new PointText(new Point(rect.x + 20, rect.y + 50));
+            text.strokeColor = '#000';
+            text.strokeWidth = 0.5;
+            text.characterStyle = { font: 'sans-serif', fontSize: 36, fillColor: '#fff' };
+            text.content = x1 + " , " + y1;
+            return text;
+        })());
+
+        node.addChild((function() {
+            var text = new PointText(new Point(rect.x + rect.width - 190, rect.y + rect.height - 30));
+            text.strokeColor = '#000';
+            text.strokeWidth = 0.5;
+            text.characterStyle = { font: 'sans-serif', fontSize: 36, fillColor: '#fff' };
+            text.content = x2 + " , " + y2;
+            return text;
+        })());
+
+        return node;
+    };
+
+    // coordinates in window space
+    var rect = new Rectangle(new Point(0, 0), new Size($(window).innerWidth() - 1, $(window).innerHeight() - 1));
+    var node = makeSceneNode(rect);
+
+    // refreshes the graphics
+    var refreshgfx = function() {
+        node.remove();
+        node = makeSceneNode(rect);
+    };
+
+
+
+
+
+
+    // -----------------------
+    // local storage
+    // -----------------------
+
+    // stores the sweet spot in [0,1]x[0,1] space
+    var store = function(p) {
+        var q = {
+            x1: p.x, y1: p.y,
+            x2: p.x + p.width, y2: p.y,
+            x3: p.x + p.width, y3: p.y + p.height,
+            x4: p.x, y4: p.y + p.height
+        };
+        sweetSpot.set(q);
+    };
+
+    // retrieves the sweet spot in [0,1]x[0,1] space
+    var retrieve = function() {
+        var q = sweetSpot.get();
+        return {x: q.x1, y: q.y1, width: q.x3 - q.x1, height: q.y3 - q.y1};
+    };
+
+
+
+
+
+
+
+    // -----------------------
+    // sweetSpot properties
+    // -----------------------
+
+    // get/set properties (position & size) in normalized [0,1]x[0,1] space
+    var property = function(p) {
+        var iw = $(window).innerWidth();
+        var ih = $(window).innerHeight();
+
+        if(p !== undefined) {
+            var q = {
+                x: p.x ? p.x : rect.x / iw,
+                y: p.y ? p.y : rect.y / ih,
+                width: p.width ? p.width : rect.width / iw,
+                height: p.height ? p.height : rect.height / ih
+            };
+            store(q);
+
+            rect.x = Math.max(0.0, Math.min(1.0, q.x)) * iw;
+            rect.y = Math.max(0.0, Math.min(1.0, q.y)) * ih;
+            rect.width = Math.max(0.1, Math.min(1.0, q.width)) * iw;
+            rect.height = Math.max(0.1, Math.min(1.0, q.height)) * ih;
+            refreshgfx();
+        }
+
+        return {
+            x: rect.x / iw,
+            y: rect.y / ih,
+            width: rect.width / iw,
+            height: rect.height / ih
+        };
+    };
+    
+    // resets the sweetSpot
+    var reset = function() {
+        property({x: 0.0, y: 0.0, width: 1.0, height: 1.0});
+    };
+
+
+
+
+
+    // -----------------------
+    // misc
+    // -----------------------
+
+    // constructor
+    (function() {
+        if(sweetSpot) {
+            // load sweetSpot from localstorage
+            property(retrieve());
+        }
+        else {
+            reset();
+            alert("Impossível inicializar editor: sweetspot inválido!");
+        }
+    })();
+    
+
+    // public stuff
+    return {
+        x: function(value) { return value ? property({x: value}).x : property().x; },
+        y: function(value) { return value ? property({y: value}).y : property().y; },
+        width: function(value) { return value ? property({width: value}).width : property().width; },
+        height: function(value) { return value ? property({height: value}).height : property().height; },
+        setColor: function(color) { rectColor = color; refreshgfx(); return color; },
+        reset: reset
+    };
+})(wall.sweetSpot());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Translate(event)
+{
+    var iw = $(window).innerWidth();
+    var ih = $(window).innerHeight();
+    var x = event.point.x / iw;
+    var y = event.point.y / ih;
+    window.sweetSpotEditor.x(x);
+    window.sweetSpotEditor.y(y);
+}
+
+function Scale(event)
+{
+    var iw = $(window).innerWidth();
+    var ih = $(window).innerHeight();
+    var x = event.point.x / iw;
+    var y = event.point.y / ih;
+    window.sweetSpotEditor.width(x - window.sweetSpotEditor.x());
+    window.sweetSpotEditor.height(y - window.sweetSpotEditor.y());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------
+// paperjs events
+// -----------------------
+var mouseDown = false;
+var translating = true;
+var cursors = new Group();
+
+function onMouseDown(event)
+{
+    mouseDown = true;
+    if(translating)
+        Translate(event);
+    else
+        Scale(event);
+}
+
+function onMouseUp(event)
+{
+    mouseDown = false;
+}
+
+function onMouseMove(event)
+{
+    if(mouseDown) {
+        if(translating)
+            Translate(event);
+        else
+            Scale(event);
+    }
+}
+
+function onKeyDown(event)
+{
+    if(event.key == 'control') {
+        translating = false;
+        window.sweetSpotEditor.setColor('#f66');
+    }
+}
+
+function onKeyUp(event)
+{
+    if(event.key == 'control') {
+        translating = true;
+        window.sweetSpotEditor.setColor('#fff');
+    }
+}
+
+function onFrame(event)
+{
+    var wlist = wall.objects();
+
+    cursors.remove();
+    cursors = new Group();
+    for(var k in wlist) {
+        var wo = wlist[k];
+        var pos = wall.i2w(wo.x(), wo.y());
+        cursors.addChild(new Path.Circle({
+            center: new Point(pos.x, pos.y),
+            radius: 30,
+            strokeWidth: 2,
+            strokeColor: '#000',
+            fillColor: wo.color()
+        }));
+    }
+
+}
+
+function onResize(event)
+{
+    // bugs everything:
+/*
+    window.sweetSpotEditor.x(0.0);
+    window.sweetSpotEditor.y(0.0);
+    window.sweetSpotEditor.width(1.0);
+    window.sweetSpotEditor.height(1.0);
+*/
+}

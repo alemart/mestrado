@@ -1,0 +1,7 @@
+#!/bin/bash
+cd bin
+cp data/touchcalib/params.txt /tmp/touchparams.txt
+cp data/touchcalib/params_wallserver.bak data/touchcalib/params.txt
+./tox play $@
+cp /tmp/touchparams.txt data/touchcalib/params.txt
+cd ..

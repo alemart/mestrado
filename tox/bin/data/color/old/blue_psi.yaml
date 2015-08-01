@@ -1,0 +1,6 @@
+%YAML:1.0
+blue_psi: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: f
+   data: [ 1.56557693e+02, 8.24519196e+01 ]

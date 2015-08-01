@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# 
+# using openFrameworks 0073 ...
+#
+
+cd bin
+./tox $@
+cd ..

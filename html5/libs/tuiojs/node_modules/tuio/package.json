@@ -1,0 +1,42 @@
+{
+  "name": "tuio",
+  "description": "Tuio is the server part of Tuio.js, a JavaScript implementation of the TUIO library for multitouch and tangible interaction in the web browser.",
+  "version": "1.0.0",
+  "homepage": "http://fe9lix.github.com/Tuio.js/",
+  "author": {
+    "name": "Felix Raab",
+    "email": "fe9lix@googlemail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/felix/Tuio.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fe9lix/Tuio.js/issues"
+  },
+  "licenses": [
+    {
+      "type": "GPL",
+      "url": "http://fe9lix.github.com/Tuio.js//blob/master/LICENSE-GPL"
+    }
+  ],
+  "engines": {
+    "node": "~0.6.13"
+  },
+  "dependencies": {
+    "socket.io": "0.9.6",
+    "jspack": "0.0.1"
+  },
+  "devDependencies": {
+    "express": "2.5.9",
+    "grunt": "~0.3.9"
+  },
+  "keywords": [
+    "tuio",
+    "osc",
+    "touch",
+    "multitouch",
+    "tangible"
+  ],
+  "main": "index"
+}

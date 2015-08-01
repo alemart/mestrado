@@ -1,0 +1,6 @@
+%YAML:1.0
+marker_green_psi: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: f
+   data: [ 9.19145279e+01, 1.71615387e+02 ]

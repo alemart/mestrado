@@ -1,0 +1,7 @@
+%YAML:1.0
+marker_magenta_lambdaInv: !!opencv-matrix
+   rows: 2
+   cols: 2
+   dt: f
+   data: [ 9.68958065e-02, 7.20539987e-02, 7.20539838e-02,
+       8.07524249e-02 ]

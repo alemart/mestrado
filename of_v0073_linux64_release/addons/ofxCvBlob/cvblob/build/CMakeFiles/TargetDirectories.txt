@@ -1,0 +1,4 @@
+/home/alemart/openframeworks/addons/ofxCvBlob/build/lib/CMakeFiles/cvblob.dir
+/home/alemart/openframeworks/addons/ofxCvBlob/build/test/CMakeFiles/test.dir
+/home/alemart/openframeworks/addons/ofxCvBlob/build/test/CMakeFiles/test_random.dir
+/home/alemart/openframeworks/addons/ofxCvBlob/build/test/CMakeFiles/test_tracking.dir

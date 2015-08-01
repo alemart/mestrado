@@ -1,0 +1,2 @@
+#!/bin/bash
+nodejs libs/tuiojs/src/server.js

@@ -1,0 +1,73 @@
+{
+    "metadata": {
+        "version": 4.3,
+        "type": "Object",
+        "generator": "ObjectExporter"
+    },
+    "geometries": [
+        {
+            "uuid": "1337E7F9-BB46-40B0-A847-02B0071F9A1A",
+            "type": "CylinderGeometry",
+            "radiusTop": 20,
+            "radiusBottom": 20,
+            "height": 100,
+            "radialSegments": 8,
+            "heightSegments": 1,
+            "openEnded": false
+        },
+        {
+            "uuid": "D128CBA3-AEEA-4C63-B161-C08CAD49FE36",
+            "type": "SphereGeometry",
+            "radius": 75,
+            "widthSegments": 32,
+            "heightSegments": 16
+        }],
+    "materials": [
+        {
+            "uuid": "F864F33D-9909-4F7D-9A48-3EC8F35BDC7E",
+            "type": "MeshBasicMaterial",
+            "color": 10592673,
+            "opacity": 1,
+            "transparent": false,
+            "wireframe": false
+        },
+        {
+            "uuid": "0AF836D0-C0E7-41FE-8234-F3B4D509DA4D",
+            "type": "MeshBasicMaterial",
+            "color": 16771584,
+            "opacity": 1,
+            "transparent": false,
+            "wireframe": false
+        }],
+    "object": {
+        "uuid": "E04774EA-8BE5-4254-AFF1-8C83783353EB",
+        "type": "Object",
+        "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+        "children": [
+            {
+                "uuid": "3A5150BA-EBE6-4485-8660-F1B29FC9A0C6",
+                "name": "Cylinder 2",
+                "type": "Mesh",
+                "geometry": "1337E7F9-BB46-40B0-A847-02B0071F9A1A",
+                "material": "F864F33D-9909-4F7D-9A48-3EC8F35BDC7E",
+                "matrix": [1,0,0,0,0,2,0,0,0,0,1,0,0,-127.03385162353516,0,1]
+            },
+            {
+                "uuid": "9786CD45-0FBB-48F3-BF65-121E3EE8AB42",
+                "name": "Sphere 3",
+                "type": "Mesh",
+                "geometry": "D128CBA3-AEEA-4C63-B161-C08CAD49FE36",
+                "material": "0AF836D0-C0E7-41FE-8234-F3B4D509DA4D",
+                "matrix": [0.699999988079071,0,0,0,0,0.699999988079071,0,0,0,0,0.699999988079071,0,0,0,0,1]
+            },
+            {
+                "uuid": "0680065A-84A4-446E-8624-BABC58E2F611",
+                "name": "PointLight 1",
+                "type": "PointLight",
+                "color": 16777215,
+                "intensity": 0.5,
+                "distance": 0,
+                "matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]
+            }]
+    }
+}

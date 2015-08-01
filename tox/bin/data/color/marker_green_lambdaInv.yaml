@@ -1,0 +1,7 @@
+%YAML:1.0
+marker_green_lambdaInv: !!opencv-matrix
+   rows: 2
+   cols: 2
+   dt: f
+   data: [ 1.69435292e-01, 9.28151906e-02, 9.28151831e-02,
+       9.21835676e-02 ]

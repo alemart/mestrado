@@ -1,0 +1,6 @@
+%YAML:1.0
+finger_psi: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: f
+   data: [ 1.37096771e+02, 1.41800003e+02 ]

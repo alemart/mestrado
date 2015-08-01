@@ -1,0 +1,6 @@
+%YAML:1.0
+projetor_marker_blue_psi: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: f
+   data: [ 1.37500000e+02, 9.26057663e+01 ]

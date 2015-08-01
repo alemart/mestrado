@@ -1,0 +1,2 @@
+npm install: express, socket.io, jspack
+dai, rode: nodejs src/server.js

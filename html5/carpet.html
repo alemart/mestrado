@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Magic Carpet</title>
+    <!-- <link rel="stylesheet" href="css/global.css" /> -->
+    <style>
+    @import url(./Cesium-1.6/Build/Cesium/Widgets/widgets.css);
+    html, body, #cesiumContainer {
+        width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+    }
+
+#crossfade {
+    position: fixed;
+    z-index: 9999;
+    left: 442px;
+    bottom: 250px;
+}
+
+#crossfade img {
+    position:absolute;
+    height:206px;
+    width:140px;
+    left:0;
+    opacity: 1;
+    -webkit-transition: opacity 0.35s ease-in-out;
+    -moz-transition: opacity 0.35s ease-in-out;
+    -o-transition: opacity 0.35s ease-in-out;
+    -ms-transition: opacity 0.35s ease-in-out;    
+    transition: opacity 0.35s ease-in-out;
+}
+
+#crossfade img.hidden {
+    opacity:0;
+}
+
+    </style>
+    <script src="Cesium-1.6/Build/Cesium/Cesium.js"></script>
+    <script src="libs/tuiojs/libs/jquery-1.7.2.js"></script>
+    <script src="libs/sylvester/sylvester.src.js"></script>
+    <script src="libs/tuiojs/libs/lodash.js"></script>
+    <script src="libs/tuiojs/libs/socket.io.js"></script>
+    <script src="libs/tuiojs/dist/Tuio.js"></script>
+    <script src="js/sweetSpot.js"></script>
+    <script src="js/wall.js"></script>
+    <script src="js/cursors.js"></script>
+    <script src="js/shadow.js"></script>
+    <script src="js/dollar.js"></script>
+  </head>
+  <body>
+    <div id="crossfade">
+      <img id="cat0" src="res/cat.png">
+      <img id="cat1" src="res/cat2.png" class="hidden">
+    </div>
+    <div id="cesiumContainer"></div>
+    <script src="js/carpet.js"></script>
+  </body>
+</html>

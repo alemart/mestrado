@@ -1,0 +1,6 @@
+%YAML:1.0
+translation: !!opencv-matrix
+   rows: 3
+   cols: 1
+   dt: f
+   data: [ 1.9985242312092553e-02, -7.4423738761617583e-04, -1.0916736334336222e-02 ]

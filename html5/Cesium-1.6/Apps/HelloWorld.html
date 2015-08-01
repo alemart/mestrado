@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Use correct character set. -->
+  <meta charset="utf-8">
+  <!-- Tell IE to use the latest, best version (or Chrome Frame if pre-IE11). -->
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title>Hello World!</title>
+  <script src="../Build/Cesium/Cesium.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script> -->
+    <script src="../../libs/tuiojs/libs/jquery-1.7.2.js"></script>
+    <script src="../../libs/sylvester/sylvester.src.js"></script>
+    <script src="../../libs/tuiojs/libs/lodash.js"></script>
+    <script src="../../libs/tuiojs/libs/socket.io.js"></script>
+    <script src="../../libs/tuiojs/dist/Tuio.js"></script>
+    <script src="../../libs/threejs/three.js"></script>
+    <script src="../../js/sweetSpot.js"></script>
+    <script src="../../js/wall.js"></script>
+    <script src="../../js/cursors.js"></script>
+    <script src="../../js/shadow.js"></script>
+    <script src="../../js/dollar.js"></script>
+  <style>
+      @import url(../Build/Cesium/Widgets/widgets.css);
+      html, body, #cesiumContainer {
+          width: 100%; height: 100%; margin: 0; padding: 0; overflow: hidden;
+      }
+  </style>
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+  <script>
+var viewer = new Cesium.Viewer('cesiumContainer');
+var camera = viewer.camera;
+var canvas = viewer.canvas;
+var SCREEN_W = canvas.clientWidth, SCREEN_H = canvas.clientHeight;
+
+camera.flyTo({
+    //destination: Cesium.Cartesian3.fromDegrees(-46.655232, -23.562660, 1000), // av paulista: long, lat, height
+    //destination: new Cesium.Cartesian3.fromDegrees(-0.8163576419426691, -0.5076627811799496, 370894.094844516),
+    destination: new Cesium.Cartesian3(4020730.722030813, -4216144.109132254, -2780846.105934037),
+    orientation: {
+        heading: 0,
+        pitch: -Cesium.Math.PI/8,
+        roll: 0
+    },
+    duration: 0
+});
+
+String.prototype.capitalize = function(){ return this.replace( /(^|\s)([a-z])/g , function(m,a,b){ return a+b.toUpperCase(); } ); };
+
+
+//
+// mousemove simulator
+//
+var mouseSimulator = (function() {
+
+    return {
+        x: 0,
+        y: 0,
+        ready: true,
+        wx: 0, // walking dx
+        wy: 0, // walking dy
+        wb: 0, // walking button
+
+        setup: function(duration) {
+            var that = this;
+            var el = $(document.elementFromPoint(10, 10)); // a canvas
+            el.on('mousemove', function(e) {
+                that.x = e.pageX;
+                that.y = e.pageY;
+                //console.log('recebi mousemove: ' + e.pageX + ', ' + e.pageY);
+            }).on('mouseup', function(e) {
+                that.x = e.pageX;
+                that.y = e.pageY;
+                //console.log('recebi mouseup: ' + e.pageX + ', ' + e.pageY);
+            }).on('mousedown', function(e) {
+                that.x = e.pageX;
+                that.y = e.pageY;
+                //console.log('recebi mousedown: ' + e.pageX + ', ' + e.pageY);
+            });
+
+            // walking
+            var dur = duration !== undefined ? duration : 0.5;
+            (function f() {
+                var that = this;
+                function g() { setTimeout(function() { f.call(that); }, 0.1); }
+                this.move(this.wx, this.wy, this.wb, dur - 0.065, g);
+            }).call(this);
+        },
+
+        trigger: function(eventName, button) {
+            var el = document.getElementsByTagName('canvas')[0];//document.elementFromPoint(this.x, this.y);
+            var ev = new MouseEvent(eventName, {
+                bubbles: true,
+                cancelable: true,
+                currentTarget: el,
+                clientX: this.x,
+                clientY: this.y,
+                button: button || 0,
+                buttons: (button == 0) ? 1 : ((button == 1) ? 4 : (button == 2) ? 2 : 0)
+            });
+            el.dispatchEvent(ev);
+        },
+
+        click: function() {
+            this.trigger('click');
+        },
+
+        start: function(button) {
+            if(this.ready) {
+                var canvas = document.getElementsByTagName('canvas')[0];
+                this.x = canvas.width/2;
+                this.y = canvas.height/2;
+                this.ready = false;
+                this.trigger('mousedown', button);
+            }
+        },
+
+        finish: function(button) {
+            if(!this.ready) {
+                var canvas = document.getElementsByTagName('canvas')[0];
+                this.x = canvas.width/2;
+                this.y = canvas.height/2;
+                this.trigger('mouseup', button);
+                this.ready = true;
+            }
+        },
+
+        move: function(dx, dy, button, duration, callback) { // (dx, dy) in pixels, button is (0 = left, 1 = middle, 2 = right), duration in seconds
+            var that = this, last = Date.now(), t = 0, tmr = null;
+            button = (button !== undefined) ? button : 0;
+            duration = (duration !== undefined) ? duration * 1000.0 : 1000;
+
+            if(dx * dx + dy * dy < 1.0) {
+                setTimeout(function() {
+                    if(callback)
+                        callback.call(that);
+                }, duration);
+                return;
+            }
+
+            this.start(button);
+            var sx = this.x, sy = this.y;
+
+            (function f() {
+                var now = Date.now();
+                t += now - last;
+                if(t < duration) {
+                    last = now;
+                    that.x = Math.ceil(dx * (t / duration)) + sx;
+                    that.y = Math.ceil(dy * (t / duration)) + sy;
+                    that.trigger('mousemove', button);
+                    tmr = setTimeout(f, 2);
+                }
+                else {
+                    that.finish(button);
+                    if(callback)
+                        callback.call(that);
+                }
+            })();
+        },
+
+        keepWalking: function(dx, dy, button) {
+            this.wx = dx;
+            this.wy = dy;
+            this.wb = button !== undefined ? button : this.wb;
+        },
+
+        
+    };
+})();
+mouseSimulator.setup();
+
+//
+// camera speed
+//
+var setSpeed = (function() {
+    var moveSpd = 0.0;
+    /*var moveIntv = setInterval(function() { 
+        var ellipsoid = viewer.scene.globe.ellipsoid;
+        var MAGIC = 0.01 * ellipsoid.cartesianToCartographic(viewer.camera.position).height;
+        viewer.camera.moveForward(moveSpd * MAGIC);
+    }, 33);*/
+
+    function setSpeed(spd)
+    {
+        if(spd !== undefined) {
+            moveSpd = spd;
+            var MAGIC = 24.0;
+            mouseSimulator.keepWalking(0, MAGIC * spd);
+        }
+        return moveSpd;
+    }
+
+    return setSpeed;
+})();
+
+function getSpeed()
+{
+    return setSpeed();
+}
+
+//
+// camera direction
+//
+var DEG90 = 240.0 / 90.0; // magic
+
+var yawPitch = (function() {
+
+    var oldYaw = 0.0, oldPitch = 0.0;
+
+    function set(yaw, pitch, callback) {
+        if(yaw !== undefined && pitch !== undefined) {
+            mouseSimulator.keepWalking(0, 0);
+            setTimeout(function() {
+                mouseSimulator.move(DEG90 * (oldYaw - yaw), DEG90 * (oldPitch - pitch), 1, 1.0, callback);
+                oldYaw = yaw;
+                oldPitch = pitch;
+            }, 500);
+        }
+
+        return { yaw: oldYaw, pitch: oldPitch };
+    }
+
+    function get() {
+        return set();
+    }
+
+    return { get: get, set: set };
+
+})();
+
+function setYawPitch(yaw, pitch, callback) { return yawPitch.set(yaw, pitch, callback); }
+function getYaw() { return yawPitch.get().yaw; }
+function getPitch() { return yawPitch.get().pitch; }
+function setYaw(yaw, callback) { return setYawPitch(yaw, getPitch(), callback); }
+function setPitch(pitch, callback) { return setYawPitch(getYaw(), pitch, callback); }
+
+var setRoll = (function() {
+    var old = 0.0
+
+    function setRoll(angle)
+    {
+        if(angle !== undefined) {
+            viewer.camera.twistRight(angle - old);
+            old = angle;
+        }
+        return old;
+    }
+
+    return setRoll;
+})();
+
+function getRoll()
+{
+    return setRoll();
+}
+
+//
+// checkpoints
+//
+var chkents = {};
+
+function createCheckpoint(name)
+{
+    localStorage.setItem('cp_*', JSON.stringify(
+        $.unique($.merge(JSON.parse(localStorage.getItem('cp_*') || '[]'), [name]))
+    ));
+
+    localStorage.setItem('cp_' + name, JSON.stringify({
+        position: { x: viewer.camera.position.x, y: viewer.camera.position.y, z: viewer.camera.position.z },
+        orientation: { heading: viewer.camera.heading, pitch: viewer.camera.pitch, roll: viewer.camera.roll },
+    }));
+
+    _createCheckpointEntity(name, viewer.camera.position, viewer.camera.heading, viewer.camera.pitch, viewer.camera.roll);
+    return true;
+}
+
+function gotoCheckpoint(name)
+{
+    var time = 3.0;
+    var obj = JSON.parse(localStorage.getItem('cp_' + name));
+    if(obj) {
+        viewer.camera.flyTo({
+            destination: new Cesium.Cartesian3(obj.position.x, obj.position.y, obj.position.z),
+            orientation: {
+                heading: obj.orientation.heading,
+                pitch: obj.orientation.pitch,
+                roll: obj.orientation.roll
+            },
+            duration: time,
+        });
+        return true;
+    }
+    else
+        return false;
+}
+
+function removeCheckpoint(name)
+{
+    if(chkents[name]) {
+        viewer.entities.remove(chkents[name]);
+        delete chkents[name];
+        var l = JSON.parse(localStorage.getItem('cp_*'));
+        var idx = l.indexOf(name);
+        if(idx >= 0)
+            l.splice(idx, 1);
+        localStorage.setItem('cp_*', JSON.stringify(l));
+        return true;
+    }
+    else
+        return false;
+}
+
+function listCheckpoints()
+{
+    return JSON.parse(localStorage.getItem('cp_*') || '[]');
+}
+
+function clearCheckpoints()
+{
+    var l = listCheckpoints();
+    for(var k in l)
+        removeCheckpoint(l[k]);
+    localStorage.setItem('cp_*', '[]');
+    return true;
+}
+
+// ===============================================
+
+function loadCheckpoints()
+{
+    var chks = JSON.parse(localStorage.getItem('cp_*') || '[]');
+    for(var k in chks) {
+        var name = chks[k];
+        var chk = JSON.parse(localStorage.getItem('cp_' + name));
+        var pos = chk.position;
+        var ori = chk.orientation;
+        _createCheckpointEntity(name, new Cesium.Cartesian3(pos.x, pos.y, pos.z), ori.heading, ori.pitch, ori.roll);
+    }
+}
+
+function checkpoints()
+{
+    var l = {};
+    var chks = JSON.parse(localStorage.getItem('cp_*') || '[]');
+    for(var k in chks) {
+        var name = chks[k];
+        var chk = JSON.parse(localStorage.getItem('cp_' + name));
+        l[name] = chk;
+    }
+    return l;
+}
+
+function _createCheckpointEntity(name, position, heading, pitch, roll)
+{
+    var restoreCamera = (function(camera) {
+        var position = camera.position.clone();
+        var heading = camera.heading;
+        var pitch = camera.pitch;
+        var roll  = camera.roll;
+        function restoreCamera() {
+            camera.flyTo({
+                destination: position,
+                orientation: { heading: heading, pitch: pitch, roll: roll },
+                duration: 0
+            });
+        }
+        return restoreCamera;
+    })(viewer.camera);
+
+    var newpos = (function(camera, ellipsoid) {
+        camera.flyTo({
+            destination: position,
+            orientation: {
+                heading: heading,
+                pitch: pitch,
+                roll: roll
+            },
+            duration: 0
+        });
+        var ray = camera.getPickRay(new Cesium.Cartesian2(viewer.canvas.clientWidth/2, viewer.canvas.clientHeight/2));
+        var intersection = Cesium.IntersectionTests.rayEllipsoid(ray, ellipsoid);
+        var point = Cesium.Ray.getPoint(ray, intersection.start);
+        return point;
+    })(viewer.camera, viewer.scene.globe.ellipsoid);
+
+    if(chkents[name]) {
+        viewer.entities.remove(chkents[name]);
+        delete chkents[name];
+    }
+
+    chkents[name] = viewer.entities.add({
+        name: name,
+        position: newpos,
+        point: {
+            pixelSize: 5,
+            color: Cesium.Color.RED,
+            outlineColor: Cesium.Color.WHITE,
+            outlineWidth: 2
+        },
+        label: {
+            text: name.capitalize(),
+            font: '24pt sans-serif',
+            style: Cesium.LabelStyle.FILL_AND_OUTLINE,
+            outlineWidth: 2,
+            verticalOrigin: Cesium.VerticalOrigin.BOTTOM,
+            pixelOffset: new Cesium.Cartesian2(0, -9)
+        }
+    });
+
+    restoreCamera();
+}
+
+setTimeout(loadCheckpoints, 1000);
+
+//
+// speech recognition
+//
+var speech = new webkitSpeechRecognition();
+var speechCallback = {
+    'goto': null,
+    'create': null,
+    'remove': null,
+};
+speech.continuous = true;
+speech.interimResults = false;
+speech.lang = 'pt-BR';
+speech.onresult = function(e) {
+    var str = '';
+    for(var i = e.resultIndex; i < e.results.length; i++) {
+        if(e.results[i].isFinal)
+            str += e.results[i][0].transcript;
+    }
+    console.log('[speech] listened: ' + str);
+
+    // obtem lugar
+    var match, re = {
+        'goto': [ /^\s*v[áa]i? p[a]?r[ao]\s+[ao]?\s*(.*)\s*$/ ],
+        'create': [ /^\s*aqui [ée]m?\s+[ao]?\s*(.*)\s*$/ ],
+        'remove': [ /^\s*remov[ae]\s+[ao]?\s*(.*)\s*$/ ]
+    };
+    for(var k in re) {
+        for(var i in re[k]) {
+            var match = re[k][i].exec(str);
+            if(match) {
+                console.log('[speech] ' + k + ': ' + match[1]);
+                if(speechCallback[k])
+                    speechCallback[k].call(window, match[1], str);
+                return;
+            }
+        }
+    }
+    console.log('[speech] no match.');
+};
+
+//
+// magic wand TUIO interface
+//
+var wand = (function() {
+    var that = this;
+    var $1 = new DollarRecognizer();
+    var visible = false;
+    var active = false;
+    var gesture = [];
+    var intv = setInterval(function() { // UPDATE function
+        // grab tuio stuff
+        var tuioWand = (function() {
+            var objs = wall.objects();
+            for(k in objs) {
+                var wo = objs[k];
+                if(wo.type().match(/^wand_/))
+                    return wo;
+            }
+            return null;
+        })();
+
+        if(tuioWand) {
+            visible = true;
+            active = !!(tuioWand.type().match(/:active$/));
+            that.x = tuioWand.x();
+            that.y = tuioWand.y();
+            that.z = tuioWand.z();
+        }
+        else
+            visible = true; //false;
+
+        // collecting gestures
+        if(visible && active) {
+            gesture.push(new Point(that.x, that.y)); // 2D projection
+        }
+
+        // recognize a gesture
+        if(visible && !active && gesture.length >= 40) {
+            var g = $1.Recognize(gesture);
+            var cb = that.callback[g.Name];
+            if(cb)
+                cb(gesture.slice(), g.Score);
+            console.log('[$1] recognized "' + g.Name + '" (' + g.Score + ').');
+            gesture.length = 0;
+        }
+    }, 1000 / 30);
+
+    return {
+        x: 0,
+        y: 0,
+        z: 0.5,
+        isVisible: function() {
+            return visible;
+        },
+        isActive: function() {
+            return active;
+        },
+        callback: {
+            circle: null,
+            v: null,
+            hat: null,
+            arrow: null
+        }
+    };
+})();
+
+//
+// state machine
+//
+var stateMachine = (function() {
+    var state = 0;
+    var intv = null;
+    var that = this;
+
+    wand.callback.circle = function() {
+        that.changeState(that.state.READY);
+    };
+
+    wand.callback.arrow = function() {
+        that.changeState(that.state.MOVING);
+    };
+
+    wand.callback.v = function() {
+        that.changeState(that.state.SPEAKING);
+    };
+
+    return {
+        state: {
+            READY: 0,
+            SPEAKING: 1,
+            MOVING: 2
+        },
+
+        currentState: function() {
+            return state;
+        },
+
+        changeState: function(st) {
+            console.log('[state] changing from ' + state + ' to ' + st);
+
+            // old state
+            switch(state) {
+            case this.state.READY:
+                break;
+
+            case this.state.SPEAKING:
+                for(var k in speechCallback)
+                    speechCallback[k] = null;
+                speech.onend = function() { };
+                speech.stop();
+                break;
+
+            case this.state.MOVING:
+                break;
+            }
+
+            // new state
+            switch(state = st) {
+            case this.state.READY:
+                break;
+
+            case this.state.SPEAKING:
+                function f(g, that) { return function(name) { g.call(that, name); /*that.changeState(that.state.READY);*/ } };
+                speechCallback.goto = f(gotoCheckpoint, this);
+                speechCallback.create = f(createCheckpoint, this);
+                speechCallback.remove = f(removeCheckpoint, this);
+                speech.onend = f(function() { if(state == this.state.SPEAKING) { speech.start(); console.log('[speech] restarted'); } }, this);
+                speech.start();
+                break;
+
+            case this.state.MOVING:
+                break;
+            }
+        }
+    };
+})();
+
+stateMachine.changeState(stateMachine.state.READY);
+
+  </script>
+</body>
+</html>

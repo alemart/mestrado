@@ -1,0 +1,6 @@
+%YAML:1.0
+eraser_green_psi: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: f
+   data: [ 9.91632690e+01, 1.50224487e+02 ]

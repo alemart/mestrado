@@ -1,0 +1,6 @@
+%YAML:1.0
+projetor_marker_magenta_psi: !!opencv-matrix
+   rows: 2
+   cols: 1
+   dt: f
+   data: [ 1.78714279e+02, 1.06174606e+02 ]
