@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     }
 
     ofAppGlutWindow window;
-    window.setGlutDisplayString("rgba single samples>=4 depth");
+    //window.setGlutDisplayString("rgba single samples>=4 depth");
     //ofSetupOpenGL(&window, 1280, 960, fs ? OF_FULLSCREEN : OF_WINDOW);
     ofSetupOpenGL(&window, 1024, 768, fs ? OF_FULLSCREEN : OF_WINDOW);
 
